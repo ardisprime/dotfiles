@@ -23,6 +23,7 @@ focus-follows-mouse = true
 confirm-close-surface = false
 bold-is-bright = false
 auto-update = off
+resize-overlay = never
 
 # keybinds
 # reload config
