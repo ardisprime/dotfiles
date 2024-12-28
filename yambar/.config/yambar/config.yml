@@ -1,0 +1,64 @@
+
+bar: 
+  location: top
+  height: 15
+  font: RecMonoLinear:pixelsize=12
+  layer: top
+  margin: 10
+  background: 000000ff
+  foreground: ffffffff
+  spacing: 5
+
+  border:
+    top-width: 5
+    bottom-width: 5
+  
+  left:
+  - script:
+      path: ~/.config/yambar/scripts/niri_workspaces.sh
+      poll-interval: 250
+      content:
+      - string:
+          text: "{pre_focused_workspaces}"
+
+      - string:
+          text: "{focused_workspace}"
+          foreground: 000000ff
+          deco:
+            background:
+              color: ff0000ff
+
+      - string:
+          text: "{post_focused_workspaces}"
+  center: 
+  - clock:
+      content:
+      - string: 
+          text: "{time}"
+
+  right:
+  - network:
+      poll-interval: 1000
+      content:
+        map:
+          conditions:
+            name == eth0:
+              string:
+                text: "net: {dl-speed:mb}MB/{ul-speed:mb}MB"
+
+  - mem:
+      poll-interval: 1000
+      content:
+        string:
+          text: "mem: {used:mb}MB"
+
+  - cpu:
+      poll-interval: 1000
+      content:
+        map:
+          conditions:
+            id < 0:
+              string:
+                text: "cpu: {cpu}%"
+
+
