@@ -16,8 +16,37 @@ window-padding-y = 8
 background-opacity = 0.8
 
 # colors
+# black
+palette = 0=#000000
+palette = 8=#333333
+# red
+palette = 1=#bb1144
+palette = 9=#ff4466
+# green
+palette = 2=#22aa66
+palette = 10=#55ff88
+# yellow
+palette = 3=#ccaa33
+palette = 11=#ffdd88
+# blue
+palette = 4=#4433dd
+palette = 12=#9988ff
+# magenta
+palette = 5=#aa2299
+palette = 13=#ff88dd
+# cyan
+palette = 6=#1177aa
+palette = 14=#77ddff
+# white
+palette = 7=#bbbbbb
+palette = 15=#ffffff
+# misc
 background = #00001a
-
+foreground = #bbbbff
+cursor-color = #bbbbff
+selection-background = #444444
+selection-foreground = #c5c8c6
+ 
 # misc
 focus-follows-mouse = true
 confirm-close-surface = false
