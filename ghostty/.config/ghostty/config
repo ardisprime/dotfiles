@@ -1,0 +1,41 @@
+
+# font config 
+font-family = "RecMonoLinear Nerd Font Mono"
+font-size = 11
+
+# cursor
+shell-integration-features = no-cursor
+cursor-style = block
+
+# decoration 
+window-decoration = false
+window-padding-x = 8
+window-padding-y = 8
+ 
+# background blur
+background-opacity = 0.8
+
+# colors
+background = #00001a
+
+# misc
+focus-follows-mouse = true
+confirm-close-surface = false
+bold-is-bright = false
+auto-update = off
+
+# keybinds
+# reload config
+keybind = "ctrl+shift+;=reload_config"
+# scrolling
+keybind = "ctrl+shift+i=scroll_page_lines:-4"
+keybind = "ctrl+shift+u=scroll_page_lines:4"
+# make new splits
+keybind = "ctrl+alt+h=new_split:right"
+keybind = "ctrl+alt+d=new_split:down"
+# goto in splits
+keybind = "ctrl+shift+h=goto_split:left"
+keybind = "ctrl+shift+j=goto_split:bottom"
+keybind = "ctrl+shift+k=goto_split:top"
+keybind = "ctrl+shift+l=goto_split:right"
+
