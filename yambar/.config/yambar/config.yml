@@ -1,17 +1,20 @@
 
+light_color: &light_color bbbbffff
+dark_color: &dark_color 00001aff
+
 bar: 
   location: top
-  height: 15
-  font: RecMonoLinear:pixelsize=12
+  height: 14
+  font: RecMonoLinear Nerd Font Mono:pixelsize=11:style=Regular
   layer: top
-  margin: 10
-  background: 000000ff
-  foreground: ffffffff
-  spacing: 5
+  margin: 14
+  background: *dark_color
+  foreground: *light_color
+  spacing: 6
 
   border:
-    top-width: 5
-    bottom-width: 5
+    top-width:    6
+    bottom-width: 6
   
   left:
   - script:
@@ -19,22 +22,25 @@ bar:
       poll-interval: 250
       content:
       - string:
-          text: "{pre_focused_workspaces}"
-
+          text: "{pre_focused_workspaces} "
       - string:
           text: "{focused_workspace}"
-          foreground: 000000ff
+          foreground: *dark_color
           deco:
             background:
-              color: ff0000ff
-
+              color: *light_color
       - string:
-          text: "{post_focused_workspaces}"
+          text: " {post_focused_workspaces}"
+
   center: 
   - clock:
       content:
       - string: 
-          text: "{time}"
+          text: " {time} "
+          foreground: *dark_color
+          deco:
+            background:
+              color: *light_color
 
   right:
   - network:
@@ -44,13 +50,21 @@ bar:
           conditions:
             name == eth0:
               string:
-                text: "net: {dl-speed:mb}MB/{ul-speed:mb}MB"
+                foreground: *dark_color
+                deco:
+                  background:
+                    color: *light_color
+                text: " net: {dl-speed:mb}MB/{ul-speed:mb}MB "
 
   - mem:
       poll-interval: 1000
       content:
         string:
-          text: "mem: {used:mb}MB"
+          foreground: *dark_color
+          deco:
+            background:
+              color: *light_color
+          text: " mem: {used:mb}MB "
 
   - cpu:
       poll-interval: 1000
@@ -59,6 +73,10 @@ bar:
           conditions:
             id < 0:
               string:
-                text: "cpu: {cpu}%"
+                foreground: *dark_color
+                deco:
+                  background:
+                    color: *light_color
+                text: " cpu: {cpu}% "
 
 
