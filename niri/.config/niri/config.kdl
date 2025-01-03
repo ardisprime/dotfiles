@@ -33,7 +33,7 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "Virtual-1" {
+output "eDP-1" {
   // Uncomment this line to disable this output.
   // off
 
@@ -201,17 +201,6 @@ animations {
     // block-out-from "screencast"
 }
 
-window-rule {
-  match app-id="Ghostty"
-
-  draw-border-with-background false
-  open-fullscreen true
-
-  focus-ring {
-    active-color "#ff0000"
-  }
-}
-
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
@@ -239,6 +228,9 @@ binds {
     Mod+T { spawn "ghostty"; }
     Mod+B { spawn "firefox-wayland"; }
     Mod+D { spawn "fuzzel"; }
+    
+    // lock screen
+    Mod+C { spawn "physlock"; }
 
     Mod+Q { close-window; }
 
