@@ -48,7 +48,7 @@ bar:
       content:
         map:
           conditions:
-            name == eth0:
+            name == wlp4s0:
               string:
                 foreground: *dark_color
                 deco:

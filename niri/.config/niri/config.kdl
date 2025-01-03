@@ -19,6 +19,19 @@ input {
     }
   }
 
+  mouse {
+    accel-profile "flat"
+    accel-speed -0.1
+  }
+
+  touchpad {
+    // disabled-on-external-mouse
+    tap
+    natural-scroll
+    accel-profile "flat"
+    accel-speed 0.3
+  }
+
   // Uncomment this to make the mouse warp to the center of newly focused windows.
   warp-mouse-to-focus
 
@@ -332,7 +345,7 @@ hotkey-overlay {
 cursor {
   hide-after-inactive-ms 2000
   xcursor-theme "Adwaita"
-  xcursor-size 24
+  xcursor-size 12
 }
 
 // Add lines like this to spawn processes at startup.
