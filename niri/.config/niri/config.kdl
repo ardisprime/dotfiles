@@ -25,7 +25,7 @@ input {
   }
 
   touchpad {
-    // disabled-on-external-mouse
+    disabled-on-external-mouse
     tap
     natural-scroll
     accel-profile "flat"
