@@ -1,0 +1,9 @@
+[user]
+	email = christoffer.marschner@online.de
+	name = ardisprime
+[pull]
+	rebase = false
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
