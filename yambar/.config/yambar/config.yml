@@ -43,6 +43,10 @@ bar:
               color: *light_color
 
   right:
+  - pulse:
+      content:
+        string: " audio: "
+
   - network:
       poll-interval: 1000
       content:
@@ -54,7 +58,7 @@ bar:
                 deco:
                   background:
                     color: *light_color
-                text: " net: {dl-speed:mb}MB/{ul-speed:mb}MB "
+                text: " net: {ssid} {dl-speed:mb}MB/{ul-speed:mb}MB "
 
   - mem:
       poll-interval: 1000
@@ -78,5 +82,15 @@ bar:
                   background:
                     color: *light_color
                 text: " cpu: {cpu}% "
+
+  # - pulse:
+      # poll-interval: 1000
+      # content:
+      #   string:
+      #     text: " audio: % "
+          # foreground: *dark_color
+          #   deco:
+          #     background:
+          #       color: *light_color
 
 
