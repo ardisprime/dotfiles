@@ -43,9 +43,32 @@ bar:
               color: *light_color
 
   right:
-  - pulse:
+  - script:
+      path: ~/.config/yambar/scripts/pulseaudio.sh
+      poll-interval: 250
       content:
-        string: " audio: "
+        map:
+          conditions:
+            sink_muted == false:
+              string:
+                text: " {sink_name}: {sink_volume} "
+                foreground: *dark_color
+                deco:
+                  background:
+                    color: *light_color
+            sink_muted == true:
+              string:
+                text: " {sink_name}: muted({sink_volume}) "
+                foreground: *dark_color
+                deco:
+                  background:
+                    color: *light_color
+      # - string:
+      #     text: " {sink_name}: {sink_volume} {sink_muted} "
+      #     foreground: *dark_color
+      #     deco:
+      #       background:
+      #         color: *light_color
 
   - network:
       poll-interval: 1000
@@ -82,15 +105,5 @@ bar:
                   background:
                     color: *light_color
                 text: " cpu: {cpu}% "
-
-  # - pulse:
-      # poll-interval: 1000
-      # content:
-      #   string:
-      #     text: " audio: % "
-          # foreground: *dark_color
-          #   deco:
-          #     background:
-          #       color: *light_color
 
 
