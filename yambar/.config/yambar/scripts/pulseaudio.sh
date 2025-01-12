@@ -33,9 +33,9 @@ do
 done
 
 short_sink_name=${selected_sink%%.*}
-sink_volume=$(pactl -f json list sinks | jq .[$counter].base_volume.value_percent)
+sink_volume=$(pactl -f json list sinks | jq .[$counter].volume.[].value_percent)
 sink_volume=${sink_volume#\"*}
-sink_volume=${sink_volume%\"*}
+sink_volume=${sink_volume%%\"*}
 sink_muted=$(pactl -f json list sinks | jq .[$counter].mute)
 
 echo "sink_name|string|$short_sink_name"
