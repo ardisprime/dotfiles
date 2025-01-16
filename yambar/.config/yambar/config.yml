@@ -85,7 +85,7 @@ bar:
           deco:
             background:
               color: *light_color
-          text: " mem: {used:mb}MB "
+          text: " mem: {percent_used}% "
 
   - cpu:
       poll-interval: 1000
