@@ -1,5 +1,0 @@
-
-return {
-  "benlubas/molten-nvim"
-}
-

@@ -1,6 +1,12 @@
 
 return {
   {
+    "noahfrederick/vim-noctu",
+    name = "noctu",
+    priority = 1000,
+    lazy = false
+  },
+  {
     "jeffkreeftmeijer/vim-dim",
     name = "dim",
     priority = 1000,
