@@ -9,8 +9,10 @@ set shiftwidth=0
 -- search settings
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-
+  
+-- enabling terminal colors
 vim.opt.termguicolors = true
+
 -- yanking to system clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
@@ -65,7 +67,12 @@ vim.cmd("nmap <leader>wl <C-w>l")
 -- keymaps for floaterm
 vim.keymap.set("n", "<leader>t", ":FloatermNew --width=0.8 --height=0.8<CR>")
 -- set color scheme
-vim.cmd.colorscheme("everforest")
+-- vim.cmd.colorscheme("everforest")
+vim.opt.termguicolors = false
+vim.cmd.colorscheme('dim')
+vim.cmd('highlight Normal ctermbg=NONE guibg=NONE guifg=NONE')
+vim.cmd('highlight NonText ctermbg=NONE guibg=NONE guifg=NONE')
+  
 -- fix indent
 vim.keymap.set("n", "<leader>=", "mmgg=G'm")
 -- exit insert quicker
