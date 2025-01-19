@@ -18,9 +18,9 @@ background-opacity = 0.8
 # colors
 # black
 palette = 0=#000000
-palette = 8=#333333
+palette = 8=#555555
 # red
-palette = 1=#bb1144
+palette = 1=#cc2255
 palette = 9=#ff4466
 # green
 palette = 2=#22aa66
@@ -32,13 +32,13 @@ palette = 11=#ffdd88
 palette = 4=#4433dd
 palette = 12=#9988ff
 # magenta
-palette = 5=#aa2299
+palette = 5=#aa4499
 palette = 13=#ff88dd
 # cyan
 palette = 6=#1177aa
-palette = 14=#77ddff
+palette = 14=#33bbdd
 # white
-palette = 7=#bbbbbb
+palette = 7=#888888
 palette = 15=#ffffff
 # misc
 background = #00001a
