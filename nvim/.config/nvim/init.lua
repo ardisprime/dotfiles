@@ -69,8 +69,8 @@ vim.keymap.set("n", "<leader>t", ":FloatermNew --width=0.8 --height=0.8<CR>")
 -- set color scheme
 vim.opt.termguicolors = false
 vim.cmd.colorscheme('dim')
-vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
-vim.cmd('highlight NonText ctermbg=NONE guibg=NONE')
+-- vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
+-- vim.cmd('highlight NonText ctermbg=NONE guibg=NONE')
   
 -- fix indent
 vim.keymap.set("n", "<leader>=", "mmgg=G'm")
@@ -104,7 +104,10 @@ vim.keymap.set("n", "<leader>o", ":lua require\"oil\".toggle_float()<CR>")
 -- shortcut for zz and zq to all files
 vim.keymap.set("n", "ZZ", ":wqa<CR>")
 vim.keymap.set("n", "ZQ", ":qa!<CR>")
-
+-- shortcut for zz and zq to all files
+vim.keymap.set("n", "<leader>rc", ":! ghostty -e make<CR>")
+-- shortcut for opening full screen terminal
+vim.keymap.set("n", "<C-t>", ":term<CR>i")
 
 
 
