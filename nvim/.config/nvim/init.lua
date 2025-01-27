@@ -12,11 +12,6 @@ vim.opt.incsearch = true
   
 -- enabling terminal colors
 vim.opt.termguicolors = true
-
--- yanking to system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+yy")
 -- set relative lines
 vim.cmd("set relativenumber")
 -- disable line wrap
@@ -73,7 +68,7 @@ vim.cmd.colorscheme('dim')
 -- vim.cmd('highlight NonText ctermbg=NONE guibg=NONE')
   
 -- fix indent
-vim.keymap.set("n", "<leader>=", "mmgg=G'm")
+vim.keymap.set("n", "<leader>=", "mmgg=G'mzz")
 -- exit insert quicker
 vim.keymap.set("i", "<C-c>", "<Esc>")
 -- delete buffer shortcut
@@ -108,6 +103,11 @@ vim.keymap.set("n", "ZQ", ":qa!<CR>")
 vim.keymap.set("n", "<leader>rc", ":! ghostty -e make<CR>")
 -- shortcut for opening full screen terminal
 vim.keymap.set("n", "<C-t>", ":term<CR>i")
+-- system clipboard
+vim.keymap.set("v", "<leader>cy", "\"+y")
+vim.keymap.set("n", "<leader>cy", "\"+y")
+vim.keymap.set("n", "<leader>cl", "\"+yy")
+vim.keymap.set("n", "<leader>cp", "\"+p")
 
 
 
