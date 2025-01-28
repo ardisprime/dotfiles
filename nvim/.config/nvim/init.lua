@@ -59,6 +59,10 @@ vim.cmd("nmap <leader>wh <C-w>h")
 vim.cmd("nmap <leader>wj <C-w>j")
 vim.cmd("nmap <leader>wk <C-w>k")
 vim.cmd("nmap <leader>wl <C-w>l")
+-- add remaps for creating and closing windows
+vim.keymap.set("n", "<leader>wu", ":vsplit<CR><C-w>l")
+vim.keymap.set("n", "<leader>wi", ":split<CR><C-w>j")
+vim.keymap.set("n", "<leader>wq", ":q<CR>")
 -- keymaps for floaterm
 vim.keymap.set("n", "<leader>t", ":FloatermNew --width=0.8 --height=0.8<CR>")
 -- set color scheme
@@ -66,7 +70,7 @@ vim.opt.termguicolors = false
 vim.cmd.colorscheme('dim')
 -- vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
 -- vim.cmd('highlight NonText ctermbg=NONE guibg=NONE')
-  
+
 -- fix indent
 vim.keymap.set("n", "<leader>=", "mmgg=G'mzz")
 -- exit insert quicker
@@ -89,8 +93,6 @@ vim.keymap.set("v", "<S-k>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>rm", ":%s/\r$<CR>")
 -- duplicate line
 vim.keymap.set("n", "<S-d>", "yyp")
--- set python host prog
-vim.g.python3_host_prog = "/usr/sbin/python3"
 -- shortcut for line wrap 
 vim.cmd("set linebreak")
 vim.keymap.set("n", "<leader>lw", ":set wrap!<CR>")
@@ -108,9 +110,6 @@ vim.keymap.set("v", "<leader>cy", "\"+y")
 vim.keymap.set("n", "<leader>cy", "\"+y")
 vim.keymap.set("n", "<leader>cl", "\"+yy")
 vim.keymap.set("n", "<leader>cp", "\"+p")
-
-
-
 
 
 
