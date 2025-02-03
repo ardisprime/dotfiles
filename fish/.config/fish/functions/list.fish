@@ -19,6 +19,8 @@ function list
 
   if set -q _flag_level
     set -fa additional_flags -L $_flag_level
+  else
+    set -fa additional_flags -L 3
   end
 
   switch $_flag_mode
