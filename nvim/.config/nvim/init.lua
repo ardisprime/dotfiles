@@ -1,15 +1,15 @@
 
 -- setting indent
 vim.cmd[[
-set expandtab
-set tabstop=2
-set softtabstop=0
-set shiftwidth=0
+  set expandtab
+  set tabstop=2
+  set softtabstop=0
+  set shiftwidth=0
 ]]
 -- search settings
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-  
+
 -- enabling terminal colors
 vim.opt.termguicolors = true
 -- set relative lines
@@ -51,34 +51,27 @@ config.setup({
   indent = {enable = true},
 })
 
--- add remaps for moving up and down
-vim.cmd("nmap <C-d> <C-d>zz")
-vim.cmd("nmap <C-u> <C-u>zz")
+-- WINDOW SHORTCUTS
 -- add remaps for switching windows
-vim.cmd("nmap <leader>wh <C-w>h")
-vim.cmd("nmap <leader>wj <C-w>j")
-vim.cmd("nmap <leader>wk <C-w>k")
-vim.cmd("nmap <leader>wl <C-w>l")
+vim.keymap.set("n", "<leader>wh", "<C-w>h")
+vim.keymap.set("n", "<leader>wj", "<C-w>j")
+vim.keymap.set("n", "<leader>wk", "<C-w>k")
+vim.keymap.set("n", "<leader>wl", "<C-w>l")
 -- add remaps for creating and closing windows
 vim.keymap.set("n", "<leader>wu", ":vsplit<CR><C-w>l")
 vim.keymap.set("n", "<leader>wi", ":split<CR><C-w>j")
 vim.keymap.set("n", "<leader>wq", ":q<CR>")
--- keymaps for floaterm
-vim.keymap.set("n", "<leader>t", ":FloatermNew --width=0.8 --height=0.8<CR>")
--- set color scheme
-vim.opt.termguicolors = false
-vim.cmd.colorscheme('dim')
--- vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
--- vim.cmd('highlight NonText ctermbg=NONE guibg=NONE')
 
--- fix indent
-vim.keymap.set("n", "<leader>=", "mmgg=G'mzz")
--- exit insert quicker
-vim.keymap.set("i", "<C-c>", "<Esc>")
--- delete buffer shortcut
-vim.keymap.set("n", "<leader>bd", ":bdelete<CR>")
--- select changed text shortcut
-vim.keymap.set("n", "<leader>s", "`[v`]")
+-- TERMINAL SHORTCUTS
+-- shortcut for opening terminal
+vim.keymap.set("n", "<leader>to", ":term<CR>i")
+vim.keymap.set("n", "<leader>tu", ":vsplit<CR><C-w>l:term<CR>i")
+vim.keymap.set("n", "<leader>ti", ":split<CR><C-w>j:term<CR>i")
+
+-- MOVE SHORTCUTS
+-- add remaps for moving up and down
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- move character shortcut
 vim.keymap.set("n", "<S-h>", "dlhP")
 vim.keymap.set("n", "<S-l>", "dlp")
@@ -89,28 +82,33 @@ vim.keymap.set("n", "<S-j>", ":m +1<CR>")
 vim.keymap.set("n", "<S-k>", ":m -2<CR>")
 vim.keymap.set("v", "<S-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<S-k>", ":m '<-2<CR>gv=gv")
--- remove windows newlines
-vim.keymap.set("n", "<leader>rm", ":%s/\r$<CR>")
--- duplicate line
-vim.keymap.set("n", "<S-d>", "yyp")
--- shortcut for line wrap 
-vim.cmd("set linebreak")
-vim.keymap.set("n", "<leader>lw", ":set wrap!<CR>")
--- open oil
-vim.keymap.set("n", "<leader>o", ":lua require\"oil\".toggle_float()<CR>")
--- shortcut for zz and zq to all files
-vim.keymap.set("n", "ZZ", ":wqa<CR>")
-vim.keymap.set("n", "ZQ", ":qa!<CR>")
--- shortcut for zz and zq to all files
-vim.keymap.set("n", "<leader>rc", ":! ghostty -e make<CR>")
--- shortcut for opening full screen terminal
-vim.keymap.set("n", "<C-t>", ":term<CR>i")
--- system clipboard
+  
+-- SYSTEM CLIPBOARD
 vim.keymap.set("v", "<leader>cy", "\"+y")
 vim.keymap.set("n", "<leader>cy", "\"+y")
 vim.keymap.set("n", "<leader>cl", "\"+yy")
 vim.keymap.set("n", "<leader>cp", "\"+p")
 
+-- LINE MANIPULATION
+-- duplicate line
+vim.keymap.set("n", "<leader>lc", "yyp")
+-- shortcut for line wrap 
+vim.cmd("set linebreak")
+vim.keymap.set("n", "<leader>lw", ":set wrap!<CR>")
+-- fix line indent on full file shortcut
+vim.keymap.set("n", "<leader>=", "mmgg=G'mzz")
+
+-- exit insert quicker
+vim.keymap.set("i", "<C-c>", "<Esc>")
+-- open oil
+vim.keymap.set("n", "<leader>o", ":lua require\"oil\".toggle_float()<CR>")
+-- shortcut for zz and zq to all files
+vim.keymap.set("n", "ZZ", ":wqa<CR>")
+vim.keymap.set("n", "ZQ", ":qa!<CR>")
+
+-- set color scheme
+vim.opt.termguicolors = false
+vim.cmd.colorscheme('dim')
 
 
 
