@@ -67,6 +67,8 @@ vim.keymap.set("n", "<leader>wq", ":q<CR>")
 vim.keymap.set("n", "<leader>to", ":term<CR>i")
 vim.keymap.set("n", "<leader>tu", ":vsplit<CR><C-w>l:term<CR>i")
 vim.keymap.set("n", "<leader>ti", ":split<CR><C-w>j:term<CR>i")
+-- quit terminal mode shortcut 
+vim.keymap.set("t", "<C-Space>", "<C-\\><C-n>")
 
 -- MOVE SHORTCUTS
 -- add remaps for moving up and down
