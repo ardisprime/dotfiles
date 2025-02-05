@@ -360,4 +360,5 @@ cursor {
 // spawn-at-startup "firefox-wayland"
 spawn-at-startup "yambar"
 spawn-at-startup "swww-daemon"
+spawn-at-startup "fcitx5"
 
