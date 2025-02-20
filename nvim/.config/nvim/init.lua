@@ -61,6 +61,8 @@ vim.keymap.set("n", "<leader>wl", "<C-w>l")
 vim.keymap.set("n", "<leader>wu", ":vsplit<CR><C-w>l")
 vim.keymap.set("n", "<leader>wi", ":split<CR><C-w>j")
 vim.keymap.set("n", "<leader>wq", ":q<CR>")
+-- zen mode toggle
+vim.keymap.set("n", "<leader>zt", ":ZenMode<CR>")
 
 -- TERMINAL SHORTCUTS
 -- shortcut for opening terminal
