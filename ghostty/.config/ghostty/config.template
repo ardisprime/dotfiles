@@ -43,7 +43,7 @@ palette = 15=#ffffff
 # misc
 background = #colorbg
 foreground = #colorfg
-cursor-color = #bbbbff
+cursor-color = #dddddd
 selection-background = #444444
 selection-foreground = #c5c8c6
  
