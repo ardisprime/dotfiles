@@ -358,8 +358,10 @@ cursor {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "firefox-wayland"
+spawn-at-startup "changeColBg"
 spawn-at-startup "yambar"
 spawn-at-startup "swww-daemon"
+spawn-at-startup "swww" "img" "-t" "grow" "--transition-duration" "1" "--transition-fps" "60" "--transition-pos" "top-right" "backgrounds/background"
 spawn-at-startup "fcitx5"
 spawn-at-startup "pactl" "set-sink-mute" "@DEFAULT_SINK@" "1"
 
