@@ -13,7 +13,7 @@ window-padding-x = 8
 window-padding-y = 8
  
 # background blur
-background-opacity = 1
+background-opacity = 0.8
 
 # colors
 # black
@@ -41,8 +41,8 @@ palette = 14=#33bbdd
 palette = 7=#888888
 palette = 15=#ffffff
 # misc
-background = #081021
-foreground = #934B14
+background = #00001a
+foreground = #bbbbff
 cursor-color = #bbbbff
 selection-background = #444444
 selection-foreground = #c5c8c6

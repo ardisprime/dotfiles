@@ -41,8 +41,8 @@ palette = 14=#33bbdd
 palette = 7=#888888
 palette = 15=#ffffff
 # misc
-background = #081021
-foreground = #934B14
+background = #colorbg
+foreground = #colorfg
 cursor-color = #bbbbff
 selection-background = #444444
 selection-foreground = #c5c8c6
