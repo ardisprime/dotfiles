@@ -19,15 +19,15 @@ list-executables-in-path = yes
 use-bold = 1
 
 [colors]
-text            = 934B14ff
-background      = 081021ff
-input           = 934B14ff
-match           = 934B14ff
-selection       = 934B14ff
-selection-text  = 081021ff
-selection-match = 081021ff
-prompt          = 934B14ff
-border          = 934B14ff
+text            = bbbbffff
+background      = 00001acc
+input           = bbbbffff
+match           = bbbbffff
+selection       = bbbbffff
+selection-text  = 00001aff
+selection-match = 00001aff
+prompt          = bbbbffff
+border          = bbbbffff
 
 [border]
 width = 4
