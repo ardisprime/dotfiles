@@ -1,6 +1,6 @@
 
-light_color: &light_color 934B14ff
-dark_color: &dark_color 081021ff
+light_color: &light_color 8696A4ff
+dark_color: &dark_color 03060Fff
 
 bar: 
   location: top
