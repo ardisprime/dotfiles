@@ -6,6 +6,11 @@ vim.cmd[[
   set softtabstop=0
   set shiftwidth=0
 ]]
+-- settign case
+vim.cmd[[
+  set ignorecase
+  set smartcase
+]]
 -- search settings
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
