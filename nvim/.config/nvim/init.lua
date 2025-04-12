@@ -6,6 +6,11 @@ vim.cmd[[
   set softtabstop=0
   set shiftwidth=0
 ]]
+-- setting case
+vim.cmd[[
+  set ignorecase
+  set smartcase
+]]
 -- search settings
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -13,7 +18,10 @@ vim.opt.incsearch = true
 -- enabling terminal colors
 vim.opt.termguicolors = true
 -- set relative lines
-vim.cmd("set relativenumber")
+vim.cmd[[
+  set relativenumber
+  set number
+]]
 -- disable line wrap
 vim.cmd("set nowrap")
 -- set leader to space
