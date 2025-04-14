@@ -117,7 +117,12 @@ vim.keymap.set("n", "<leader>o", ":lua require\"oil\".toggle_float()<CR>")
 -- shortcut for zz and zq to all files
 vim.keymap.set("n", "ZZ", ":wqa<CR>")
 vim.keymap.set("n", "ZQ", ":qa!<CR>")
+-- shortcut for searching a selected text in visual mode
+vim.keymap.set("v", "/", "\"vy/<C-r>v<CR>N")
+-- shortcut for searching the word youre on
+vim.keymap.set("n", "<leader>/", "\"vyiw/<C-r>v<CR>N")
 
+-- COLOR SCHEME
 -- set color scheme
 vim.opt.termguicolors = false
 vim.cmd.colorscheme('dim')
