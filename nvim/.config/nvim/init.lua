@@ -121,6 +121,8 @@ vim.keymap.set("n", "ZQ", ":qa!<CR>")
 vim.keymap.set("v", "/", "\"vy/<C-r>v<CR>N")
 -- shortcut for searching the word youre on
 vim.keymap.set("n", "<leader>/", "\"vyiw/<C-r>v<CR>N")
+-- shortcut for replacing a word
+vim.keymap.set("n", "<leader>rw", "viwpyiw")
 
 -- COLOR SCHEME
 -- set color scheme
