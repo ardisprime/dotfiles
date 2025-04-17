@@ -77,6 +77,9 @@ vim.keymap.set("n", "<leader>zt", ":ZenMode<CR>")
 vim.keymap.set("n", "<leader>to", ":term<CR>i")
 vim.keymap.set("n", "<leader>tu", ":vsplit<CR><C-w>l:term<CR>i")
 vim.keymap.set("n", "<leader>ti", ":split<CR><C-w>j:term<CR>i")
+-- shortcut for running
+vim.keymap.set("n", "<leader>ru", ":vsplit<CR><C-w>l:term make<CR>i")
+vim.keymap.set("n", "<leader>ri", ":split<CR><C-w>j:term make<CR>i")
 -- quit terminal mode shortcut 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
