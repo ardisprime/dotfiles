@@ -138,7 +138,7 @@ layout {
       // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
       // Color of the ring on the active monitor.
-      active-color "#03060F"
+      active-color "#01031C"
 
       // Color of the ring on inactive monitors.
       inactive-color "#50505000"
@@ -161,7 +161,7 @@ layout {
 
   border {
     width 3
-    active-color "#8696A4"
+    active-color "#C6CCC5"
     inactive-color "#00ff0000"
   }
 
@@ -249,9 +249,9 @@ binds {
   Mod+D { spawn "fuzzel"; }
 
   // sound control
-  Mod+Ctrl+Shift+Z { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
-  Mod+Ctrl+Shift+U { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
-  Mod+Ctrl+Shift+I { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
+  XF86AudioMute { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
+  XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
+  XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
 
   // lock screen
   Mod+C { spawn "physlock"; }

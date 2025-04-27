@@ -249,9 +249,9 @@ binds {
   Mod+D { spawn "fuzzel"; }
 
   // sound control
-  Mod+Ctrl+Shift+Z { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
-  Mod+Ctrl+Shift+U { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
-  Mod+Ctrl+Shift+I { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
+  XF86AudioMute { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
+  XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
+  XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
 
   // lock screen
   Mod+C { spawn "physlock"; }
