@@ -25,7 +25,6 @@ function package_manager_wrapper
 
   # if command to run not sourced yet
   if test -z $(type -t $command_to_run 2> /dev/null) 
-    echo sourcing
     source $HOME/.config/fish/functions/*os*
   end
 
