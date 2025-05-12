@@ -364,10 +364,11 @@ cursor {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "firefox-wayland"
-spawn-at-startup "yambar"
+// spawn-at-startup "eww open main --config $HOME/.config/eww/bar/ --force-wayland"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "fcitx5"
 
 spawn-at-startup "swww" "img" "-t" "any" "--transition-duration" "1.5" "--transition-fps" "60" "backgrounds/background"
 spawn-at-startup "pactl" "set-sink-mute" "@DEFAULT_SINK@" "1"
+spawn-at-startup "/home/chris/.config/niri/startup_script.sh"
 

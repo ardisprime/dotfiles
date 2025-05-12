@@ -1,0 +1,44 @@
+
+$light-color: #949F4F;
+$dark-color: #081920;
+
+window {
+  background-color: transparent;
+  font-family: "RecMonoLinear Nerd Font Mono";
+  font-size: 10;
+}
+
+.module {
+  background-color: $dark-color;
+  color: $light-color;
+  border: 2px solid $light-color;
+  border-radius: 2px;
+  padding: 0px 4px;
+  margin: 0px 2px;
+}
+
+.left {
+  background-color: $dark-color;
+  color: $light-color;
+  border: 2px solid $light-color;
+  border-radius: 2px;
+  padding: 0px 2px;
+  margin: 0px 2px;
+}
+
+.active_workspace {
+  margin: 2px 1px;
+  padding: 0px 2px;
+  border: 1px solid $light-color;
+  border-radius: 2px;
+}
+
+.workspace {
+  margin: 0px 1px;
+}
+
+.inactive_workspace {
+  margin: 0px 1px;
+  color: $dark-color;
+}
+
