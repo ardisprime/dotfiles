@@ -1,0 +1,150 @@
+
+; MAIN WINDOW
+(defwindow main
+    :monitor 0
+    :stacking "bg"
+    :exclusive true
+    :geometry 
+  (geometry
+    :y "0.8%"
+    :width "55%" 
+    :anchor "top center"
+  )
+  (main_layout)
+)
+
+; MAIN LAYOUT
+(defwidget main_layout []
+  (box
+    :class "main"
+    (left)
+    (middle)
+    (right)
+  )
+)
+
+(defwidget left []
+  (box
+    :class "left"
+    :halign "start"
+    :valign "center"
+    (workspaces)
+  )
+)
+
+(defwidget middle []
+  (box
+    :class "middle"
+    :halign "center"
+    :valign "center"
+    (time)
+  )
+)
+
+(defwidget right []
+  (box
+    :class "right"
+    :halign "end" 
+    :space-evenly false
+    :valign "center"
+    (audio)
+    (network)
+    (memory)
+    (cpu)
+    (fan)
+  )
+)
+
+; AUDIO
+(defpoll audio_poll 
+  :interval "50ms"
+  "scripts/get_audio.sh"
+)
+
+(defwidget audio []
+  (label
+    :class "module"
+    :text "aud ${audio_poll.muted ? "(": ""}${audio_poll.volume}${audio_poll.muted ? ")": ""}"
+  )
+)
+
+; NETWORK
+(defpoll network_poll
+  :interval "100ms"
+  "nmcli connection show --active | grep wifi | awk '{print($1) }'"
+)
+
+(defwidget network []
+  (label 
+    :class "module"
+    :text "net ${network_poll == "" ? "_" : network_poll}"
+  )
+)
+
+; MEMORY
+(defpoll memory_poll 
+  :interval "200ms"
+  "top -bn1 -Em | grep \"MiB Spch\" | awk '{printf(\"%.0f\", 100 * $7 / $3) }'"
+)
+
+(defwidget memory []
+  (label
+    :class "module"
+    :text "mem ${memory_poll}%"
+  )
+)
+
+; CPU
+(defpoll cpu_poll
+  :interval "200ms"
+  "top -bn1 | grep \"%CPU(s)\" | awk '{printf(\"%.0f\", 100 - $8 - $10)}'"
+)
+ 
+(defwidget cpu []
+  (label 
+    :class "module"
+    :text "cpu ${cpu_poll}%"
+  )
+)
+
+; FAN SPEED
+(defwidget fan []
+  (label
+    :class "module"
+    :text "fan"
+  )
+)
+
+; WORKSPACES
+(defpoll workspaces_poll
+  :interval "20ms"
+  :initial "{\"count\": 1, \"active\": 1}"
+  "./scripts/get_workspaces.sh"
+)
+
+(deflisten workspaces_literal
+  :initial "workspaces"
+  "./scripts/generate_workspaces.sh"
+)
+
+(defwidget workspaces []
+  (literal
+    :class "${workspaces_poll}"
+    :content "${workspaces_literal}"
+  )
+)
+
+; TIME
+(defpoll time_poll
+  :interval "4s"
+  :initial "time"
+  "date +'{\"hour\": \"%H\", \"minute\": \"%M\"}'"
+)
+
+(defwidget time []
+  (label
+    :class "module"
+    :text "${time_poll.hour}:${time_poll.minute}"
+  )
+)
+
