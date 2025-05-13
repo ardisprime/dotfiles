@@ -58,6 +58,7 @@
 ; AUDIO
 (defpoll audio_poll 
   :interval "50ms"
+  :initial "{\"name\": \"na\", \"volume\": \"na\", \"muted\": true}"
   "scripts/get_audio.sh"
 )
 
@@ -70,7 +71,8 @@
 
 ; NETWORK
 (defpoll network_poll
-  :interval "100ms"
+  :interval "500ms"
+  :initial "na"
   "nmcli connection show --active | grep wifi | awk '{print($1) }'"
 )
 
@@ -83,7 +85,8 @@
 
 ; MEMORY
 (defpoll memory_poll 
-  :interval "200ms"
+  :interval "500ms"
+  :initial "na"
   "top -bn1 -Em | grep \"MiB Spch\" | awk '{printf(\"%.0f\", 100 * $7 / $3) }'"
 )
 
@@ -96,7 +99,8 @@
 
 ; CPU
 (defpoll cpu_poll
-  :interval "200ms"
+  :interval "500ms"
+  :initial "na"
   "top -bn1 | grep \"%CPU(s)\" | awk '{printf(\"%.0f\", 100 - $8 - $10)}'"
 )
  
@@ -116,28 +120,21 @@
 )
 
 ; WORKSPACES
-(defpoll workspaces_poll
-  :interval "20ms"
-  :initial "{\"count\": 1, \"active\": 1}"
-  "./scripts/get_workspaces.sh"
-)
-
-(defpoll workspaces_literal
-  :interval "20ms"
-  "./scripts/generate_workspaces.sh"
+(deflisten workspaces
+  :initial "\"na\""
+  "./scripts/get_workspace.sh"
 )
 
 (defwidget workspaces []
   (literal
-    :class "${workspaces_poll}"
-    :content "${workspaces_literal}"
+    :content "${workspaces.literal}"
   )
 )
 
 ; TIME
 (defpoll time_poll
   :interval "4s"
-  :initial "time"
+  :initial "{\"hour\": \"00\", \"minute\": \"00\"}"
   "date +'{\"hour\": \"%H\", \"minute\": \"%M\"}'"
 )
 
