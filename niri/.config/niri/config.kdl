@@ -138,7 +138,7 @@ layout {
       // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
       // Color of the ring on the active monitor.
-      active-color "#01031C"
+      active-color "#040804"
 
       // Color of the ring on inactive monitors.
       inactive-color "#50505000"
@@ -161,7 +161,7 @@ layout {
 
   border {
     width 3
-    active-color "#C6CCC5"
+    active-color "#D13712"
     inactive-color "#00ff0000"
   }
 
@@ -364,10 +364,11 @@ cursor {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "firefox-wayland"
-spawn-at-startup "yambar"
+// spawn-at-startup "eww open main --config $HOME/.config/eww/bar/ --force-wayland"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "fcitx5"
 
 spawn-at-startup "swww" "img" "-t" "any" "--transition-duration" "1.5" "--transition-fps" "60" "backgrounds/background"
 spawn-at-startup "pactl" "set-sink-mute" "@DEFAULT_SINK@" "1"
+spawn-at-startup "/home/chris/.config/niri/startup_script.sh"
 

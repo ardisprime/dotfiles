@@ -64,7 +64,6 @@
 (defwidget audio []
   (label
     :class "module"
-;    :text "aud ${audio_poll.name}"
     :text "aud ${audio_poll.name} ${audio_poll.muted ? "(": ""}${audio_poll.volume}${audio_poll.muted ? ")": ""}"
   )
 )
