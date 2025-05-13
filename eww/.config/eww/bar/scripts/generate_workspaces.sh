@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# workspaces="(box :halign \"start\""
-workspaces="(box :space-evenly false "
+workspaces="(box :space-evenly false"
+number_workspaces="$(niri msg -j workspaces | jq -c '.[]')"
 
 counter=1
-while test $counter -le 9
+for workspace in $number_workspaces
 do
   workspaces="$workspaces (label :class \"\${workspaces_poll.count < $counter ? 'inactive_workspace' : workspaces_poll.active == $counter ? 'active_workspace' : 'workspace'}\" :text $counter)"
   counter=$(($counter + 1))

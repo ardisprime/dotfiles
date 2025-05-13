@@ -122,8 +122,8 @@
   "./scripts/get_workspaces.sh"
 )
 
-(deflisten workspaces_literal
-  :initial "workspaces"
+(defpoll workspaces_literal
+  :interval "20ms"
   "./scripts/generate_workspaces.sh"
 )
 
