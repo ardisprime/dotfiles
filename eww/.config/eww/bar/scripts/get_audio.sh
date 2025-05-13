@@ -14,5 +14,5 @@ do
   fi
 done
 
-echo "{\"volume\": $volume, \"muted\": $muted}"
+echo "{\"name\": \"${selected_sink%%.*}\", \"volume\": $volume, \"muted\": $muted}"
 

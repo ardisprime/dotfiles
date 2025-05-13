@@ -7,7 +7,7 @@
     :geometry 
   (geometry
     :y "0.8%"
-    :width "55%" 
+    :width "60%" 
     :anchor "top center"
   )
   (main_layout)
@@ -64,7 +64,8 @@
 (defwidget audio []
   (label
     :class "module"
-    :text "aud ${audio_poll.muted ? "(": ""}${audio_poll.volume}${audio_poll.muted ? ")": ""}"
+;    :text "aud ${audio_poll.name}"
+    :text "aud ${audio_poll.name} ${audio_poll.muted ? "(": ""}${audio_poll.volume}${audio_poll.muted ? ")": ""}"
   )
 )
 
