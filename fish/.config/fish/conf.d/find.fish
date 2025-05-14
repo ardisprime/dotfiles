@@ -1,0 +1,3 @@
+
+abbr --add find fd
+
