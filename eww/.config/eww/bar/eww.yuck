@@ -7,7 +7,7 @@
     :geometry 
   (geometry
     :y "0.8%"
-    :width "60%" 
+    :width "80%" 
     :anchor "top center"
   )
   (main_layout)
@@ -65,7 +65,7 @@
 (defwidget audio []
   (label
     :class "module"
-    :text "aud ${audio_poll.name} ${audio_poll.muted ? "(": ""}${audio_poll.volume}${audio_poll.muted ? ")": ""}"
+    :text "サウンド ${audio_poll.name} ${audio_poll.muted ? "(": ""}${audio_poll.volume}${audio_poll.muted ? ")": ""}"
   )
 )
 
@@ -79,7 +79,7 @@
 (defwidget network []
   (label 
     :class "module"
-    :text "net ${network_poll == "" ? "_" : network_poll}"
+    :text "ネット ${network_poll == "" ? "_" : network_poll}"
   )
 )
 
@@ -93,7 +93,7 @@
 (defwidget memory []
   (label
     :class "module"
-    :text "mem ${memory_poll}%"
+    :text "メモリー ${memory_poll}%"
   )
 )
 
@@ -107,15 +107,21 @@
 (defwidget cpu []
   (label 
     :class "module"
-    :text "cpu ${cpu_poll}%"
+    :text "シピユ ${cpu_poll}%"
   )
 )
 
 ; FAN SPEED
+(defpoll fan_poll
+  :interval "500ms"
+  :initial "na"
+  "scripts/get_fan.sh"
+)
+
 (defwidget fan []
   (label
     :class "module"
-    :text "fan"
+    :text "ファン ${fan_poll.cpu}/${fan_poll.gpu}"
   )
 )
 
@@ -141,7 +147,7 @@
 (defwidget time []
   (label
     :class "module"
-    :text "${time_poll.hour}:${time_poll.minute}"
+    :text "${time_poll.hour}時${time_poll.minute}分"
   )
 )
 
