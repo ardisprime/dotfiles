@@ -150,4 +150,3 @@
     :text "${time_poll.hour}時${time_poll.minute}分"
   )
 )
-

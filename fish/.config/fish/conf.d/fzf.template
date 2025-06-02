@@ -1,4 +1,0 @@
-
-# set default fzf options
-set -gx FZF_DEFAULT_OPTS "--color='fg:#colorfg,hl:#colorfg,fg+:#colorbg,bg+:#colorfg,hl+:#colorbg,border:#colorfg,prompt:#colorfg' --marker='' --pointer='' --no-info --no-separator --no-scrollbar --border=rounded --tabstop=2 --height=75% --layout=reverse --margin=1,1"
-

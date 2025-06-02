@@ -1,7 +1,7 @@
 
 # font config 
 font-family = "RecMonoLinear Nerd Font Mono"
-font-size = 11
+font-size = 10
 
 # cursor
 shell-integration-features = no-cursor
@@ -41,8 +41,12 @@ palette = 14=#33bbdd
 palette = 7=#888888
 palette = 15=#ffffff
 # misc
-background = #040804
-foreground = #D13712
+# _{set0
+background = #01121B
+# _}end
+# _{set4
+foreground = #AE9464
+# _}end
 cursor-color = #dddddd
 selection-background = #444444
 selection-foreground = #c5c8c6

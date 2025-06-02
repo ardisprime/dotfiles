@@ -1,44 +1,153 @@
 
-$light-color: #bbb;
-$dark-color: #111;
+; MAIN WINDOW
+(defwindow main
+    :monitor 0
+    :stacking "bg"
+    :exclusive true
+    :geometry 
+  (geometry
+    :y "0.8%"
+    :width "80%" 
+    :anchor "top center"
+  )
+  (main_layout)
+)
 
-window {
-  background-color: transparent;
-  font-family: "RecMonoLinear Nerd Font Mono";
-  font-size: 10;
-}
+; MAIN LAYOUT
+(defwidget main_layout []
+  (box
+    :class "main"
+    (left)
+    (middle)
+    (right)
+  )
+)
 
-.module {
-  background-color: $dark-color;
-  color: $light-color;
-  border: 2px solid $light-color;
-  border-radius: 2px;
-  padding: 0px 4px;
-  margin: 0px 2px;
-}
+(defwidget left []
+  (box
+    :class "left"
+    :halign "start"
+    :valign "center"
+    (workspaces)
+  )
+)
 
-.left {
-  background-color: $dark-color;
-  color: $light-color;
-  border: 2px solid $light-color;
-  border-radius: 2px;
-  padding: 0px 2px;
-  margin: 0px 2px;
-}
+(defwidget middle []
+  (box
+    :class "middle"
+    :halign "center"
+    :valign "center"
+    (time)
+  )
+)
 
-.active_workspace {
-  margin: 2px 1px;
-  padding: 0px 2px;
-  border: 1px solid $light-color;
-  border-radius: 2px;
-}
+(defwidget right []
+  (box
+    :class "right"
+    :halign "end" 
+    :space-evenly false
+    :valign "center"
+    (audio)
+    (network)
+    (memory)
+    (cpu)
+    (fan)
+  )
+)
 
-.workspace {
-  margin: 0px 1px;
-}
+; AUDIO
+(defpoll audio_poll 
+  :interval "50ms"
+  :initial "{\"name\": \"na\", \"volume\": \"na\", \"muted\": true}"
+  "scripts/get_audio.sh"
+)
 
-.inactive_workspace {
-  margin: 0px 1px;
-  color: $dark-color;
-}
+(defwidget audio []
+  (label
+    :class "module"
+    :text "サウンド ${audio_poll.name} ${audio_poll.muted ? "(": ""}${audio_poll.volume}${audio_poll.muted ? ")": ""}"
+  )
+)
+
+; NETWORK
+(defpoll network_poll
+  :interval "500ms"
+  :initial "na"
+  "nmcli connection show --active | grep wifi | awk '{print($1) }'"
+)
+
+(defwidget network []
+  (label 
+    :class "module"
+    :text "ネット ${network_poll == "" ? "_" : network_poll}"
+  )
+)
+
+; MEMORY
+(defpoll memory_poll 
+  :interval "500ms"
+  :initial "na"
+  "top -bn1 -Em | grep \"MiB Spch\" | awk '{printf(\"%.0f\", 100 * $7 / $3) }'"
+)
+
+(defwidget memory []
+  (label
+    :class "module"
+    :text "メモリー ${memory_poll}%"
+  )
+)
+
+; CPU
+(defpoll cpu_poll
+  :interval "500ms"
+  :initial "na"
+  "top -bn1 | grep \"%CPU(s)\" | awk '{printf(\"%.0f\", 100 - $8 - $10)}'"
+)
+ 
+(defwidget cpu []
+  (label 
+    :class "module"
+    :text "シピユ ${cpu_poll}%"
+  )
+)
+
+; FAN SPEED
+(defpoll fan_poll
+  :interval "500ms"
+  :initial "na"
+  "scripts/get_fan.sh"
+)
+
+(defwidget fan []
+  (label
+    :class "module"
+    :text "ファン ${fan_poll.cpu}/${fan_poll.gpu}"
+  )
+)
+
+; WORKSPACES
+(deflisten workspaces
+  :initial "\"na\""
+  "./scripts/get_workspace.sh"
+)
+
+(defwidget workspaces []
+  (literal
+    :content "${workspaces.literal}"
+  )
+)
+
+; TIME
+(defpoll time_poll
+  :interval "4s"
+  :initial "{\"hour\": \"00\", \"minute\": \"00\"}"
+  "date +'{\"hour\": \"%H\", \"minute\": \"%M\"}'"
+)
+
+(defwidget time []
+  (label
+    :class "module"
+    :text "${time_poll.hour}時${time_poll.minute}分"
+  )
+)
 
