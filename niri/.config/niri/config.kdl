@@ -21,8 +21,8 @@ input {
 
   mouse {
     accel-profile "flat"
-      accel-speed -0.1
-  }
+      accel-speed -0.35
+    }
 
   touchpad {
     disabled-on-external-mouse
@@ -139,7 +139,7 @@ layout {
 
       // Color of the ring on the active monitor.
       // _{set0
-      active-color "#010508"
+      active-color "#060B0A"
       // _}end
 
       // Color of the ring on inactive monitors.
@@ -164,7 +164,7 @@ layout {
   border {
     width 3
     // _{set2
-    active-color "#081B62"
+    active-color "#996625"
     // _}end
     inactive-color "#00ff0000"
   }
@@ -373,9 +373,11 @@ spawn-at-startup "pipewire"
 spawn-at-startup "pipewire-pulse"
 spawn-at-startup "wireplumber"
 
+spawn-at-startup "xwayland-satellite"
+
 spawn-at-startup "swww-daemon"
 spawn-at-startup "fcitx5"
 
 spawn-at-startup "swww" "img" "-t" "any" "--transition-duration" "1.5" "--transition-fps" "60" "backgrounds/background"
-spawn-at-startup "/home/chris/.config/niri/startup_script.sh"
+spawn-at-startup "/home/chris/.config/niri/eww_script.sh"
 
