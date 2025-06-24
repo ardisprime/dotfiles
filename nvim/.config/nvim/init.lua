@@ -54,7 +54,7 @@ vim.keymap.set("n", "<leader>lg", builtin.live_grep, {} )
 -- setup treesitter 
 local config = require("nvim-treesitter.configs")
 config.setup({
-  ensure_installed = {"lua", "c", "cpp"},
+  ensure_installed = {"lua", "c", "cpp", "nim"},
   highlight = {enable = true},
   indent = {enable = true},
 })
